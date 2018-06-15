@@ -1,0 +1,40 @@
+service: test
+package:
+  individually: true
+
+frameworkVersion: ">=1.21.0 <2.0.0"
+
+provider:
+  name: aws
+  logRetentionInDays: 3
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+    STAGE: ${opt:stage, self:provider.stage}
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  webpack:
+    packager: 'yarn'
+    includeModules:
+        forceExclude:
+          - aws-sdk
+  serverless-offline:
+    port: 4000
+
+functions:
+  graphql:
+    handler: src/graphql.graphqlHandler
+    timeout: 30
+    warmup: true
+    events:
+    - http:
+        path: graphql
+        method: post
+        cors: true

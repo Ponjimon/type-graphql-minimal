@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": false,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "target": "es2016",
+    "outDir": ".build",
+    "lib": ["es2017"],
+    "rootDir": "./",
+    "allowJs": true,
+    "removeComments": true,
+    "pretty": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "typeRoots": ["node_modules/@types", "typings"]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "lib": [
+    "es5",
+    "es6",
+    "dom",
+    "es2015",
+    "esnext.asynciterable"
+  ]
+}
